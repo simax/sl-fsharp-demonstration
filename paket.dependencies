@@ -1,0 +1,36 @@
+source https://www.nuget.org/api/v2/
+redirects on
+framework net452
+
+// ASP .NET
+nuget Microsoft.AspNet.WebApi.Owin
+nuget Microsoft.Owin.Host.SystemWeb
+nuget Microsoft.Owin.StaticFiles
+nuget OwinHost
+
+nuget FAKE
+
+// Suave
+nuget Suave
+
+// Application Insights
+nuget Microsoft.ApplicationInsights.TraceListener content:none
+nuget Microsoft.ApplicationInsights.WindowsServer > 2 prerelease content:none
+
+// Football
+nuget Deedle
+nuget FSharp.Data
+
+// Enigma
+github isaacabraham/enigma src/Enigma/Domain.fs
+github isaacabraham/enigma src/Enigma/Logic.fs
+
+// Sudoku
+github isaacabraham/sudoku-solver src/Api/Contracts.fs
+github isaacabraham/sudoku-solver src/Api/DomainModel.fs
+github isaacabraham/sudoku-solver src/Api/Sudoku.fs
+
+// Azure + suave helpers
+github isaacabraham/azure-fsharp-helpers src/appinsights/suave-appinsights.fs
+github isaacabraham/azure-fsharp-helpers src/configuration.fs
+github isaacabraham/azure-fsharp-helpers src/diagnostics.fs

@@ -1,0 +1,122 @@
+<div class="page-header" id="banner">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Enigma Simulator</h1>
+            <p class="lead">State machine with immutable data structures</p>
+        </div>
+    </div>
+</div>
+
+<div class="bs-doc-section">
+    <div class="row">
+        <!-- Configuration -->
+        <div class="col-lg-2">
+            <legend>Initial Config</legend>
+            <h5>Reflector</h5>
+            <select ng-model="Controller.Configuration.ReflectorId" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="reflector in Controller.Reflectors" value="{{reflector}}">{{reflector}}</option>
+            </select>
+
+            <h5>Rotors</h5>
+            <select ng-model="Controller.Configuration.Left.RotorId" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="rotor in Controller.Rotors" value="{{rotor}}">{{rotor}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Middle.RotorId" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="rotor in Controller.Rotors" value="{{rotor}}">{{rotor}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Right.RotorId" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="rotor in Controller.Rotors" value="{{rotor}}">{{rotor}}</option>
+            </select>
+
+            <h5>Wheel Positions</h5>
+            <select ng-model="Controller.Configuration.Left.WheelPosition" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Middle.WheelPosition" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Right.WheelPosition" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+
+            <h5>Ring Settings</h5>
+            <select ng-model="Controller.Configuration.Left.RingSetting" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Middle.RingSetting" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+            <select ng-model="Controller.Configuration.Right.RingSetting" ng-change="Controller.loadConfiguration()">
+                <option ng-repeat="letter in Controller.Keyboard" value="{{letter.Value}}">{{letter.Value}}</option>
+            </select>
+        </div>
+
+        <!-- Translation Form -->
+        <form class="form-horizontal col-lg-10">
+            <legend>Translate</legend>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Next character</label>
+                <div class="col-sm-1">
+                    <input class="form-control" type="text" ng-model="Controller.NextChar" ng-change="Controller.translate()">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Input</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" ng-model="Controller.Input" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Output</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" ng-model="Controller.Translation" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1">
+                    <button type="submit" class="btn btn-default" ng-click="Controller.restart()">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Machine State -->
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <legend>Enigma Internals</legend>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-repeat="letter in Controller.Keyboard" class="{{letter.State}}">{{letter.Value}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Plugboard</strong></td>
+                        <td ng-repeat="mapping in Controller.Plugboard" class="{{mapping.State}}">
+                            <input type="text" maxlength="1" style="width:30px; color:black" ng-model="mapping.Value" ng-change="Controller.uploadPlugboard(mapping)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Right</strong></td>
+                        <td ng-repeat="letter in Controller.Right" class="{{letter.State}}">{{letter.Value}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Middle</strong></td>
+                        <td ng-repeat="letter in Controller.Middle" class="{{letter.State}}">{{letter.Value}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Left</strong></td>
+                        <td ng-repeat="letter in Controller.Left" class="{{letter.State}}">{{letter.Value}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reflector</strong></td>
+                        <td ng-repeat="letter in Controller.Reflector" class="{{letter.State}}">{{letter.Value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

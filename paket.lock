@@ -1,0 +1,65 @@
+REDIRECTS: ON
+FRAMEWORK: NET452
+NUGET
+  remote: https://www.nuget.org/api/v2
+    Deedle (1.2.4)
+    FAKE (4.26)
+    FSharp.Core (4.0.0.1)
+    FSharp.Data (2.2.5)
+    Microsoft.ApplicationInsights (2.2)
+    Microsoft.ApplicationInsights.Agent.Intercept (2.0.6)
+    Microsoft.ApplicationInsights.DependencyCollector (2.2)
+      Microsoft.ApplicationInsights (2.2)
+      Microsoft.ApplicationInsights.Agent.Intercept (>= 2.0.6)
+    Microsoft.ApplicationInsights.PerfCounterCollector (2.2)
+      Microsoft.ApplicationInsights (2.2)
+    Microsoft.ApplicationInsights.TraceListener (2.0) - content: none
+      Microsoft.ApplicationInsights (>= 2.0)
+    Microsoft.ApplicationInsights.WindowsServer (2.2)
+      Microsoft.ApplicationInsights (2.2)
+      Microsoft.ApplicationInsights.DependencyCollector (>= 2.2)
+      Microsoft.ApplicationInsights.PerfCounterCollector (>= 2.2)
+      Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel (2.2)
+    Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel (2.2)
+      Microsoft.ApplicationInsights (2.2)
+    Microsoft.AspNet.WebApi.Client (5.2.3)
+      Newtonsoft.Json (>= 6.0.4)
+    Microsoft.AspNet.WebApi.Core (5.2.3)
+      Microsoft.AspNet.WebApi.Client (>= 5.2.3)
+    Microsoft.AspNet.WebApi.Owin (5.2.3)
+      Microsoft.AspNet.WebApi.Core (>= 5.2.3 < 5.3)
+      Microsoft.Owin (>= 2.0.2)
+      Owin (>= 1.0)
+    Microsoft.Owin (3.0.1)
+      Owin (>= 1.0)
+    Microsoft.Owin.FileSystems (3.0.1)
+    Microsoft.Owin.Host.SystemWeb (3.0.1)
+      Microsoft.Owin (>= 3.0.1)
+      Owin (>= 1.0)
+    Microsoft.Owin.StaticFiles (3.0.1)
+      Microsoft.Owin (>= 3.0.1)
+      Microsoft.Owin.FileSystems (>= 3.0.1)
+      Owin (>= 1.0)
+    Newtonsoft.Json (8.0.3)
+    Owin (1.0)
+    OwinHost (3.0.1)
+    Streams (0.4.1)
+    Suave (1.1.2)
+      FSharp.Core (>= 3.1.2.5)
+GITHUB
+  remote: isaacabraham/enigma
+    src/Enigma/Domain.fs (a5842b77595106f33e111be8b19cdba44338ff36)
+    src/Enigma/Logic.fs (a5842b77595106f33e111be8b19cdba44338ff36)
+  remote: isaacabraham/sudoku-solver
+    src/Api/Contracts.fs (1407e6bb7ac27e97c424a547c0156c866227134a)
+      Streams
+    src/Api/DomainModel.fs (1407e6bb7ac27e97c424a547c0156c866227134a)
+      Streams
+    src/Api/Sudoku.fs (1407e6bb7ac27e97c424a547c0156c866227134a)
+      Streams
+  remote: isaacabraham/azure-fsharp-helpers
+    src/appinsights/suave-appinsights.fs (750f353438da7c69fdc62935d30faeda2c42eac1)
+      Microsoft.ApplicationInsights.WindowsServer
+      Suave
+    src/configuration.fs (750f353438da7c69fdc62935d30faeda2c42eac1)
+    src/diagnostics.fs (750f353438da7c69fdc62935d30faeda2c42eac1)
