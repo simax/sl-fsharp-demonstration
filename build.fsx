@@ -29,10 +29,10 @@ Target "StageWebsiteAssets" (fun _ ->
     let shouldInclude (file:string) =
         blacklist
         |> Seq.forall(not << file.Contains)
-    Kudu.stageFolder (Path.GetFullPath @"src\webhost") shouldInclude)
+    Kudu.stageFolder (Path.GetFullPath @"src/webhost") shouldInclude)
 
 Target "StageWebJob" (fun _ ->
-    [ @"src\Sample.fsx" ]
+    [ @"src/Sample.fsx" ]
     |> Kudu.stageWebJob Kudu.WebJobType.Continuous "sample")
 
 Target "Deploy" Kudu.kuduSync

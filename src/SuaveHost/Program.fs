@@ -11,7 +11,7 @@ open System.Configuration
 open System.Diagnostics
 open System.IO
 open System.Net
-
+ 
 let buildApp staticFilesPath : WebPart =
     let staticFileRoot = Path.GetFullPath(Environment.CurrentDirectory + staticFilesPath)
     choose [
