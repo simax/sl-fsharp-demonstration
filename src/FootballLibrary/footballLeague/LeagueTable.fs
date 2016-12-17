@@ -53,4 +53,4 @@ let getLeague (untilMonth:FootballMonth) =
         >> Array.fold applyResultToTable Map.empty
         >> Map.toList
         >> List.map snd
-        >> List.sortBy(fun team -> team.Pts, team.GoalDifference, team.For))
+        >> List.sortByDescending(fun team -> team.Pts, team.GoalDifference, team.For))
